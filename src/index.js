@@ -1,14 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import axios from "axios";
+import "./styles/global.css";
+import reportWebVitals from "./reportWebVitals";
+import { UserContextProvider } from "./Context/userContext";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+axios.defaults.baseURL = "http://localhost:4000";
+axios.defaults.withCredentials = true;
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
+  <UserContextProvider>
     <App />
-  </React.StrictMode>
+  </UserContextProvider>
+
+  // </React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

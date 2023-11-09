@@ -1,0 +1,26 @@
+#nav {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 18px 5px;
+}
+
+.nav__logo-container {
+  display: inherit;
+  flex-flow: inherit;
+  align-items: inherit;
+  margin-bottom: 12px;
+}
+
+.nav__logo-container a {
+  width: 60%;
+}
+
+.nav__logo-container a img {
+  width: 100%;
+}
+
+.nav__links-container li {
+  font-size: 1.3rem;
+}

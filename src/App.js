@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useContext } from "react";
+import Nav from "./components/nav";
+import Main from "./components/main";
+import { UserContext } from "./Context/userContext";
+import { Toaster } from "react-hot-toast";
+import Profile from "./pages/profile";
+import RegisterForm from "./pages/register";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+const App = () => {
+  const { user, getUser } = useContext(UserContext);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      {/* <Nav /> */}
+      <Main>
+        {!!user ? <Profile user={user} /> : <RegisterForm refresh={getUser} />}
+      </Main>
+      <Toaster position="bottom-right" toastOptions={{ duration: 2000 }} />
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
